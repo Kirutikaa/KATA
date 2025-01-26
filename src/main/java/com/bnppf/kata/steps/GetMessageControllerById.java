@@ -10,7 +10,7 @@ import org.apache.http.util.Asserts;
 import static io.restassured.RestAssured.*;
 
 
-public class getMessageControllerById {
+public class GetMessageControllerById {
 
     Response response;
     String messageId;
