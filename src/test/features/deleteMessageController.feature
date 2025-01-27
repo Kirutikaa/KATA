@@ -4,9 +4,9 @@ Feature: AS a user,  i want to validate the message controller
 
     Given the user wants to call the message controller api
     When the user entered the message details before action
-    Then The HTTP response code is 201
+    Then The HTTP response code for delete message is 201
     And  the user delete the message details posted
-    Then The HTTP delete response code is 403
+    Then The HTTP response code for delete message is 403
     Then user checks the message details presents after action
 
 

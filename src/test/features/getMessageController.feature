@@ -4,7 +4,7 @@ Feature: AS a user,i want to validate the message controller
 
     Given the user wants to call the message controller api
     When the user gets all the response
-    Then The HTTP response code is 200
+    Then The HTTP response code for get message is 200
     And check the response contains expected response body
 
 

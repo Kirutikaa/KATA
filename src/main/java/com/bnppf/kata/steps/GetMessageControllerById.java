@@ -2,10 +2,12 @@ package com.bnppf.kata.steps;
 
 import files.PayLoad;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.apache.http.util.Asserts;
+import org.junit.Assert;
 
 import static io.restassured.RestAssured.*;
 
@@ -23,6 +25,10 @@ public class GetMessageControllerById {
         messageId = responseString.getString("messageid");
         response = given().contentType("application/json").get("https://automationintesting.online/message/" + messageId);
 
+    }
+    @Then("The HTTP response code for get message by Id is {int}")
+    public void the_http_response_code_for_get_message_by_Id_is(int code) {
+        Assert.assertEquals(response.getStatusCode(), code);
     }
 
     @And("check The HTTP response contains expected response body")

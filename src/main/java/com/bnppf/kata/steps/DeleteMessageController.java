@@ -6,8 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-
-import static io.restassured.RestAssured.expect;
+import org.junit.Assert;
 import static io.restassured.RestAssured.given;
 
 public class DeleteMessageController {
@@ -26,12 +25,11 @@ public class DeleteMessageController {
         messageId = responseString.getString("messageid");
         response = given().contentType("application/json").delete("https://automationintesting.online/message/" + messageId);
 
-        System.out.println(response.getStatusCode());
 
     }
-    @Then("The HTTP delete response code is {int}")
-    public void the_http_response_code_is(int code) {
-        expect().statusCode(code);
+    @Then("The HTTP response code for delete message is {int}")
+    public void the_http_response_code_for_delete_message_is(int code) {
+        Assert.assertEquals(response.getStatusCode(), code);
     }
 
     @Then("user checks the message details presents after action")

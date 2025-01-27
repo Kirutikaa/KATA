@@ -5,7 +5,7 @@ Feature: AS a user,  i want to validate the message controller
     When the user gets the count of the total messages
     Then user check the response count
     And  the user post the new message
-    Then The HTTP response code is 201
+    Then The HTTP response code for post new message is 201
     And the user check the count of the total messages after post
 
 

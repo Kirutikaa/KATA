@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.apache.http.util.Asserts;
+import org.junit.Assert;
 
 import static io.restassured.RestAssured.given;
 
@@ -30,6 +31,11 @@ public class CountMessageController {
         response = given().contentType("application/json").body(PayLoad.postMessageRequest()).log().all().post();
 
     }
+    @Then("The HTTP response code for post new message is {int}")
+    public void the_http_response_code_for_post_new_message_is(int code) {
+        Assert.assertEquals(response.getStatusCode(), code);
+    }
+
     @Then("the user check the count of the total messages after post")
     public void the_user_check_the_count_of_the_total_messages_after_post() {
         response = given().contentType("application/json").get("https://automationintesting.online/message/count");
